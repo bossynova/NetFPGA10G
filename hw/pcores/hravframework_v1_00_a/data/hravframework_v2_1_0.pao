@@ -1,0 +1,46 @@
+##############################################################################
+## Filename:          /home/eagle/NetFPGA10/contrib-projects/hravcore/hw/pcores/hravframework_v1_00_a/data/hravframework_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Thu Oct  2 03:45:24 2014 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib hravframework_v1_00_a hravframework.v verilog
+lib hravframework_v1_00_a dispatcher.v verilog
+lib hravframework_v1_00_a collector.v verilog
+lib hravframework_v1_00_a fifo288x128.v verilog
+lib hravframework_v1_00_a fifo72x128.v verilog
+#lib hravframework_v1_00_a scanner_model.v verilog
+lib hravframework_v1_00_a scanner_wrapper.v verilog
+lib hravframework_v1_00_a simple_scanner.v verilog
+lib hravframework_v1_00_a hravframework_controller.v verilog
+#lib hravframework_v1_00_a sram_core.v verilog
+#lib hravframework_v1_00_a sram_controller.v verilog
+
+##SRAM INTERFACE
+#lib hravframework_v1_00_a sram/qdrii_chipscope.v verilog
+#lib hravframework_v1_00_a sram/qdrii_idelay_ctrl.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_addr_io.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_bw_io.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_clk_io.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_cq_io.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_d_io.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_dly_cal_sm.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_en.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_init_sm.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_q_io.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_read.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_v5_q_io.v verilog
+#lib hravframework_v1_00_a sram/qdrii_phy_write.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top_ctrl_sm.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top_phy.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top_rd_addr_interface.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top_rd_interface.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top_user_interface.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top_wr_addr_interface.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top_wrdata_bw_fifo.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top_wrdata_fifo.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top_wr_data_interface.v verilog
+#lib hravframework_v1_00_a sram/qdrii_top_wr_interface.v verilog
+##REPLACE INFRASTRUCTURE
+#lib hravframework_v1_00_a qdrii_infrastructure.v verilog

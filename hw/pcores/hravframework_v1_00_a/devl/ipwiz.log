@@ -1,0 +1,47 @@
+
+----------------------------------------------------------------------------
+--                            File Generation                             --
+----------------------------------------------------------------------------
+Start Creating ISE project 
+Start Creating drver source 
+
+----------------------------------------------------------------------------
+--                              Final Report                              --
+----------------------------------------------------------------------------
+Thank you for using Create and Import Peripheral Wizard!
+
+Peripheral summary
+
+  top name       : hravframework
+  version        : 1.00.a
+  type           : AXI4STREAM master slave
+  features       : 
+
+File Summary
+
+  - HDL source -
+/home/eagle/NetFPGA10/contrib-projects/hravcore/hw/pcores/hravframework_v1_00_a/
+hdl/vhdl
+  top level      : hravframework.vhd
+
+  - ISE project -
+/home/eagle/NetFPGA10/contrib-projects/hravcore/hw/pcores/hravframework_v1_00_a/
+devl/projnav
+  ise project    : hravframework.xise
+  tcl script     : hravframework.tcl
+
+
+  - XST synthesis -
+/home/eagle/NetFPGA10/contrib-projects/hravcore/hw/pcores/hravframework_v1_00_a/
+devl/synthesis
+  xst script     : hravframework_xst.scr
+  xst project    : hravframework_xst.prj
+
+  - Misc file -
+/home/eagle/NetFPGA10/contrib-projects/hravcore/hw/pcores/hravframework_v1_00_a/
+devl
+  help           : README.txt
+  option         : ipwiz.opt
+  log            : ipwiz.log
+
+

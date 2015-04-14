@@ -1,0 +1,47 @@
+
+----------------------------------------------------------------------------
+--                            File Generation                             --
+----------------------------------------------------------------------------
+Start Creating ISE project 
+Start Creating drver source 
+
+----------------------------------------------------------------------------
+--                              Final Report                              --
+----------------------------------------------------------------------------
+Thank you for using Create and Import Peripheral Wizard!
+
+Peripheral summary
+
+  top name       : pr_hrav_dispatcher
+  version        : 1.00.a
+  type           : AXI4STREAM master slave
+  features       : 
+
+File Summary
+
+  - HDL source -
+/media/dung/anhqvn/FPGA11/contrib-projects/hrav_framework_b_finall3/hw/pcores/pr
+_hrav_dispatcher_v1_00_a/hdl/vhdl
+  top level      : pr_hrav_dispatcher.vhd
+
+  - ISE project -
+/media/dung/anhqvn/FPGA11/contrib-projects/hrav_framework_b_finall3/hw/pcores/pr
+_hrav_dispatcher_v1_00_a/devl/projnav
+  ise project    : pr_hrav_dispatcher.xise
+  tcl script     : pr_hrav_dispatcher.tcl
+
+
+  - XST synthesis -
+/media/dung/anhqvn/FPGA11/contrib-projects/hrav_framework_b_finall3/hw/pcores/pr
+_hrav_dispatcher_v1_00_a/devl/synthesis
+  xst script     : pr_hrav_dispatcher_xst.scr
+  xst project    : pr_hrav_dispatcher_xst.prj
+
+  - Misc file -
+/media/dung/anhqvn/FPGA11/contrib-projects/hrav_framework_b_finall3/hw/pcores/pr
+_hrav_dispatcher_v1_00_a/devl
+  help           : README.txt
+  option         : ipwiz.opt
+  log            : ipwiz.log
+
+

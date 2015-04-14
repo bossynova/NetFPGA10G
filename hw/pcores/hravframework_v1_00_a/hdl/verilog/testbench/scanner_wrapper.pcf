@@ -1,0 +1,245 @@
+//! **************************************************************************
+// Written by: Map O.87xd on Sat Nov 08 15:26:23 2014
+//! **************************************************************************
+
+SCHEMATIC START;
+TIMEGRP clk = BEL "read_status_0" BEL "read_status_1" BEL "read_status_2" BEL
+        "read_status_3" BEL "read_status_4" BEL "read_status_5" BEL
+        "read_status_6" BEL "read_status_7" BEL "read_status_8" BEL
+        "read_status_9" BEL "read_status_10" BEL "read_status_11" BEL
+        "read_status_12" BEL "read_status_13" BEL "read_status_14" BEL
+        "read_status_15" BEL "read_status_16" BEL "read_status_17" BEL
+        "read_status_18" BEL "read_status_19" BEL "read_status_20" BEL
+        "read_status_21" BEL "read_status_22" BEL "read_status_23" BEL
+        "read_status_24" BEL "read_status_25" BEL "read_status_26" BEL
+        "read_status_27" BEL "read_status_28" BEL "read_status_29" BEL
+        "read_status_30" BEL "read_status_31" BEL "buf_id_0" BEL "buf_id_1"
+        BEL "buf_id_2" BEL "buf_id_3" BEL "buf_id_4" BEL "buf_id_5" BEL
+        "buf_id_6" BEL "buf_id_7" BEL "buf_id_8" BEL "buf_id_9" BEL
+        "buf_id_10" BEL "buf_id_11" BEL "buf_id_12" BEL "buf_id_13" BEL
+        "buf_id_14" BEL "buf_id_15" BEL "buf_id_16" BEL "buf_id_17" BEL
+        "buf_id_18" BEL "buf_id_19" BEL "buf_id_20" BEL "buf_id_21" BEL
+        "buf_id_22" BEL "buf_id_23" BEL "buf_id_24" BEL "buf_id_25" BEL
+        "buf_id_26" BEL "buf_id_27" BEL "buf_id_28" BEL "buf_id_29" BEL
+        "buf_id_30" BEL "buf_id_31" BEL "buf_end" BEL "buf_data_0" BEL
+        "buf_data_1" BEL "buf_data_2" BEL "buf_data_3" BEL "buf_data_4" BEL
+        "buf_data_5" BEL "buf_data_6" BEL "buf_data_7" BEL "buf_data_8" BEL
+        "buf_data_9" BEL "buf_data_10" BEL "buf_data_11" BEL "buf_data_12" BEL
+        "buf_data_13" BEL "buf_data_14" BEL "buf_data_15" BEL "buf_data_16"
+        BEL "buf_data_17" BEL "buf_data_18" BEL "buf_data_19" BEL
+        "buf_data_20" BEL "buf_data_21" BEL "buf_data_22" BEL "buf_data_23"
+        BEL "buf_data_24" BEL "buf_data_25" BEL "buf_data_26" BEL
+        "buf_data_27" BEL "buf_data_28" BEL "buf_data_29" BEL "buf_data_30"
+        BEL "buf_data_31" BEL "buf_data_32" BEL "buf_data_33" BEL
+        "buf_data_34" BEL "buf_data_35" BEL "buf_data_36" BEL "buf_data_37"
+        BEL "buf_data_38" BEL "buf_data_39" BEL "buf_data_40" BEL
+        "buf_data_41" BEL "buf_data_42" BEL "buf_data_43" BEL "buf_data_44"
+        BEL "buf_data_45" BEL "buf_data_46" BEL "buf_data_47" BEL
+        "buf_data_48" BEL "buf_data_49" BEL "buf_data_50" BEL "buf_data_51"
+        BEL "buf_data_52" BEL "buf_data_53" BEL "buf_data_54" BEL
+        "buf_data_55" BEL "buf_data_56" BEL "buf_data_57" BEL "buf_data_58"
+        BEL "buf_data_59" BEL "buf_data_60" BEL "buf_data_61" BEL
+        "buf_data_62" BEL "buf_data_63" BEL "buf_data_64" BEL "buf_data_65"
+        BEL "buf_data_66" BEL "buf_data_67" BEL "buf_data_68" BEL
+        "buf_data_69" BEL "buf_data_70" BEL "buf_data_71" BEL "buf_data_72"
+        BEL "buf_data_73" BEL "buf_data_74" BEL "buf_data_75" BEL
+        "buf_data_76" BEL "buf_data_77" BEL "buf_data_78" BEL "buf_data_79"
+        BEL "buf_data_80" BEL "buf_data_81" BEL "buf_data_82" BEL
+        "buf_data_83" BEL "buf_data_84" BEL "buf_data_85" BEL "buf_data_86"
+        BEL "buf_data_87" BEL "buf_data_88" BEL "buf_data_89" BEL
+        "buf_data_90" BEL "buf_data_91" BEL "buf_data_92" BEL "buf_data_93"
+        BEL "buf_data_94" BEL "buf_data_95" BEL "buf_data_96" BEL
+        "buf_data_97" BEL "buf_data_98" BEL "buf_data_99" BEL "buf_data_100"
+        BEL "buf_data_101" BEL "buf_data_102" BEL "buf_data_103" BEL
+        "buf_data_104" BEL "buf_data_105" BEL "buf_data_106" BEL
+        "buf_data_107" BEL "buf_data_108" BEL "buf_data_109" BEL
+        "buf_data_110" BEL "buf_data_111" BEL "buf_data_112" BEL
+        "buf_data_113" BEL "buf_data_114" BEL "buf_data_115" BEL
+        "buf_data_116" BEL "buf_data_117" BEL "buf_data_118" BEL
+        "buf_data_119" BEL "buf_data_120" BEL "buf_data_121" BEL
+        "buf_data_122" BEL "buf_data_123" BEL "buf_data_124" BEL
+        "buf_data_125" BEL "buf_data_126" BEL "buf_data_127" BEL
+        "buf_data_128" BEL "buf_data_129" BEL "buf_data_130" BEL
+        "buf_data_131" BEL "buf_data_132" BEL "buf_data_133" BEL
+        "buf_data_134" BEL "buf_data_135" BEL "buf_data_136" BEL
+        "buf_data_137" BEL "buf_data_138" BEL "buf_data_139" BEL
+        "buf_data_140" BEL "buf_data_141" BEL "buf_data_142" BEL
+        "buf_data_143" BEL "buf_data_144" BEL "buf_data_145" BEL
+        "buf_data_146" BEL "buf_data_147" BEL "buf_data_148" BEL
+        "buf_data_149" BEL "buf_data_150" BEL "buf_data_151" BEL
+        "buf_data_152" BEL "buf_data_153" BEL "buf_data_154" BEL
+        "buf_data_155" BEL "buf_data_156" BEL "buf_data_157" BEL
+        "buf_data_158" BEL "buf_data_159" BEL "buf_data_160" BEL
+        "buf_data_161" BEL "buf_data_162" BEL "buf_data_163" BEL
+        "buf_data_164" BEL "buf_data_165" BEL "buf_data_166" BEL
+        "buf_data_167" BEL "buf_data_168" BEL "buf_data_169" BEL
+        "buf_data_170" BEL "buf_data_171" BEL "buf_data_172" BEL
+        "buf_data_173" BEL "buf_data_174" BEL "buf_data_175" BEL
+        "buf_data_176" BEL "buf_data_177" BEL "buf_data_178" BEL
+        "buf_data_179" BEL "buf_data_180" BEL "buf_data_181" BEL
+        "buf_data_182" BEL "buf_data_183" BEL "buf_data_184" BEL
+        "buf_data_185" BEL "buf_data_186" BEL "buf_data_187" BEL
+        "buf_data_188" BEL "buf_data_189" BEL "buf_data_190" BEL
+        "buf_data_191" BEL "buf_data_192" BEL "buf_data_193" BEL
+        "buf_data_194" BEL "buf_data_195" BEL "buf_data_196" BEL
+        "buf_data_197" BEL "buf_data_198" BEL "buf_data_199" BEL
+        "buf_data_200" BEL "buf_data_201" BEL "buf_data_202" BEL
+        "buf_data_203" BEL "buf_data_204" BEL "buf_data_205" BEL
+        "buf_data_206" BEL "buf_data_207" BEL "buf_data_208" BEL
+        "buf_data_209" BEL "buf_data_210" BEL "buf_data_211" BEL
+        "buf_data_212" BEL "buf_data_213" BEL "buf_data_214" BEL
+        "buf_data_215" BEL "buf_data_216" BEL "buf_data_217" BEL
+        "buf_data_218" BEL "buf_data_219" BEL "buf_data_220" BEL
+        "buf_data_221" BEL "buf_data_222" BEL "buf_data_223" BEL
+        "buf_data_224" BEL "buf_data_225" BEL "buf_data_226" BEL
+        "buf_data_227" BEL "buf_data_228" BEL "buf_data_229" BEL
+        "buf_data_230" BEL "buf_data_231" BEL "buf_data_232" BEL
+        "buf_data_233" BEL "buf_data_234" BEL "buf_data_235" BEL
+        "buf_data_236" BEL "buf_data_237" BEL "buf_data_238" BEL
+        "buf_data_239" BEL "buf_data_240" BEL "buf_data_241" BEL
+        "buf_data_242" BEL "buf_data_243" BEL "buf_data_244" BEL
+        "buf_data_245" BEL "buf_data_246" BEL "buf_data_247" BEL
+        "buf_data_248" BEL "buf_data_249" BEL "buf_data_250" BEL
+        "buf_data_251" BEL "buf_data_252" BEL "buf_data_253" BEL
+        "buf_data_254" BEL "buf_data_255" BEL "buf_bvld_0" BEL "buf_bvld_1"
+        BEL "buf_bvld_2" BEL "buf_bvld_3" BEL "buf_bvld_4" BEL "buf_bvld_5"
+        BEL "buf_bvld_6" BEL "buf_bvld_7" BEL "buf_bvld_8" BEL "buf_bvld_9"
+        BEL "buf_bvld_10" BEL "buf_bvld_11" BEL "buf_bvld_12" BEL
+        "buf_bvld_13" BEL "buf_bvld_14" BEL "buf_bvld_15" BEL "buf_bvld_16"
+        BEL "buf_bvld_17" BEL "buf_bvld_18" BEL "buf_bvld_19" BEL
+        "buf_bvld_20" BEL "buf_bvld_21" BEL "buf_bvld_22" BEL "buf_bvld_23"
+        BEL "buf_bvld_24" BEL "buf_bvld_25" BEL "buf_bvld_26" BEL
+        "buf_bvld_27" BEL "buf_bvld_28" BEL "buf_bvld_29" BEL "buf_bvld_30"
+        BEL "buf_bvld_31" BEL "buf_cmd_0" BEL "buf_cmd_1" BEL "buf_cmd_2" BEL
+        "buf_cmd_3" BEL "buf_cmd_4" BEL "buf_cmd_5" BEL "buf_cmd_6" BEL
+        "buf_cmd_7" BEL "result_reg_1" BEL "result_reg_2" BEL "result_reg_0"
+        BEL "result_reg_207" BEL "result_reg_206" BEL "result_reg_205" BEL
+        "result_reg_204" BEL "result_reg_201" BEL "result_reg_203" BEL
+        "result_reg_202" BEL "result_reg_198" BEL "result_reg_200" BEL
+        "result_reg_199" BEL "result_reg_195" BEL "result_reg_197" BEL
+        "result_reg_196" BEL "result_reg_194" BEL "result_reg_193" BEL
+        "result_reg_192" BEL "result_reg_175" BEL "result_reg_172" BEL
+        "result_reg_174" BEL "result_reg_173" BEL "result_reg_169" BEL
+        "result_reg_171" BEL "result_reg_170" BEL "result_reg_168" BEL
+        "result_reg_167" BEL "result_reg_166" BEL "result_reg_165" BEL
+        "result_reg_162" BEL "result_reg_164" BEL "result_reg_163" BEL
+        "result_reg_161" BEL "result_reg_160" BEL "result_reg_143" BEL
+        "result_reg_142" BEL "result_reg_141" BEL "result_reg_140" BEL
+        "result_reg_139" BEL "result_reg_136" BEL "result_reg_138" BEL
+        "result_reg_137" BEL "result_reg_133" BEL "result_reg_135" BEL
+        "result_reg_134" BEL "result_reg_130" BEL "result_reg_132" BEL
+        "result_reg_131" BEL "result_reg_129" BEL "result_reg_128" BEL
+        "result_reg_110" BEL "result_reg_111" BEL "result_reg_107" BEL
+        "result_reg_109" BEL "result_reg_108" BEL "result_reg_104" BEL
+        "result_reg_106" BEL "result_reg_105" BEL "result_reg_103" BEL
+        "result_reg_102" BEL "result_reg_101" BEL "result_reg_100" BEL
+        "result_reg_97" BEL "result_reg_99" BEL "result_reg_98" BEL
+        "result_reg_96" BEL "result_reg_78" BEL "result_reg_79" BEL
+        "result_reg_77" BEL "result_reg_76" BEL "result_reg_75" BEL
+        "result_reg_74" BEL "result_reg_71" BEL "result_reg_73" BEL
+        "result_reg_72" BEL "result_reg_68" BEL "result_reg_70" BEL
+        "result_reg_69" BEL "result_reg_65" BEL "result_reg_67" BEL
+        "result_reg_66" BEL "result_reg_64" BEL "result_reg_45" BEL
+        "result_reg_47" BEL "result_reg_46" BEL "result_reg_42" BEL
+        "result_reg_44" BEL "result_reg_43" BEL "result_reg_39" BEL
+        "result_reg_41" BEL "result_reg_40" BEL "result_reg_36" BEL
+        "result_reg_38" BEL "result_reg_37" BEL "result_reg_33" BEL
+        "result_reg_35" BEL "result_reg_34" BEL "result_reg_32" BEL
+        "sid_state_FSM_FFd1" BEL "sid_index_0" BEL "sid_index_1" BEL
+        "sid_index_2" BEL "scanner0/matching_sids_47" BEL
+        "scanner0/matching_sids_46" BEL "scanner0/matching_sids_45" BEL
+        "scanner0/matching_sids_44" BEL "scanner0/matching_sids_43" BEL
+        "scanner0/matching_sids_42" BEL "scanner0/matching_sids_41" BEL
+        "scanner0/matching_sids_40" BEL "scanner0/matching_sids_39" BEL
+        "scanner0/matching_sids_38" BEL "scanner0/matching_sids_37" BEL
+        "scanner0/matching_sids_36" BEL "scanner0/matching_sids_35" BEL
+        "scanner0/matching_sids_34" BEL "scanner0/matching_sids_33" BEL
+        "scanner0/matching_sids_32" BEL "scanner0/matching_sids_31" BEL
+        "scanner0/matching_sids_30" BEL "scanner0/matching_sids_29" BEL
+        "scanner0/matching_sids_28" BEL "scanner0/matching_sids_27" BEL
+        "scanner0/matching_sids_26" BEL "scanner0/matching_sids_25" BEL
+        "scanner0/matching_sids_24" BEL "scanner0/matching_sids_23" BEL
+        "scanner0/matching_sids_22" BEL "scanner0/matching_sids_21" BEL
+        "scanner0/matching_sids_20" BEL "scanner0/matching_sids_19" BEL
+        "scanner0/matching_sids_18" BEL "scanner0/matching_sids_17" BEL
+        "scanner0/matching_sids_16" BEL "scanner0/matching_sids_15" BEL
+        "scanner0/matching_sids_14" BEL "scanner0/matching_sids_13" BEL
+        "scanner0/matching_sids_12" BEL "scanner0/matching_sids_11" BEL
+        "scanner0/matching_sids_10" BEL "scanner0/matching_sids_9" BEL
+        "scanner0/matching_sids_8" BEL "scanner0/matching_sids_7" BEL
+        "scanner0/matching_sids_6" BEL "scanner0/matching_sids_5" BEL
+        "scanner0/matching_sids_4" BEL "scanner0/matching_sids_3" BEL
+        "scanner0/matching_sids_2" BEL "scanner0/matching_sids_1" BEL
+        "scanner0/matching_sids_0" BEL "result_ready" BEL "state_FSM_FFd1" BEL
+        "scanner0/state_FSM_FFd1" BEL "scanner0/reset_result_reg" BEL
+        "scanner0/buffer_matching_sids_47" BEL
+        "scanner0/buffer_matching_sids_46" BEL
+        "scanner0/buffer_matching_sids_45" BEL
+        "scanner0/buffer_matching_sids_44" BEL
+        "scanner0/buffer_matching_sids_43" BEL
+        "scanner0/buffer_matching_sids_42" BEL
+        "scanner0/buffer_matching_sids_41" BEL
+        "scanner0/buffer_matching_sids_40" BEL
+        "scanner0/buffer_matching_sids_39" BEL
+        "scanner0/buffer_matching_sids_38" BEL
+        "scanner0/buffer_matching_sids_37" BEL
+        "scanner0/buffer_matching_sids_36" BEL
+        "scanner0/buffer_matching_sids_35" BEL
+        "scanner0/buffer_matching_sids_34" BEL
+        "scanner0/buffer_matching_sids_33" BEL
+        "scanner0/buffer_matching_sids_32" BEL
+        "scanner0/buffer_matching_sids_31" BEL
+        "scanner0/buffer_matching_sids_30" BEL
+        "scanner0/buffer_matching_sids_29" BEL
+        "scanner0/buffer_matching_sids_28" BEL
+        "scanner0/buffer_matching_sids_27" BEL
+        "scanner0/buffer_matching_sids_26" BEL
+        "scanner0/buffer_matching_sids_25" BEL
+        "scanner0/buffer_matching_sids_24" BEL
+        "scanner0/buffer_matching_sids_23" BEL
+        "scanner0/buffer_matching_sids_22" BEL
+        "scanner0/buffer_matching_sids_21" BEL
+        "scanner0/buffer_matching_sids_20" BEL
+        "scanner0/buffer_matching_sids_19" BEL
+        "scanner0/buffer_matching_sids_18" BEL
+        "scanner0/buffer_matching_sids_17" BEL
+        "scanner0/buffer_matching_sids_16" BEL
+        "scanner0/buffer_matching_sids_15" BEL
+        "scanner0/buffer_matching_sids_14" BEL
+        "scanner0/buffer_matching_sids_13" BEL
+        "scanner0/buffer_matching_sids_12" BEL
+        "scanner0/buffer_matching_sids_11" BEL
+        "scanner0/buffer_matching_sids_10" BEL
+        "scanner0/buffer_matching_sids_9" BEL
+        "scanner0/buffer_matching_sids_8" BEL
+        "scanner0/buffer_matching_sids_7" BEL
+        "scanner0/buffer_matching_sids_6" BEL
+        "scanner0/buffer_matching_sids_5" BEL
+        "scanner0/buffer_matching_sids_4" BEL
+        "scanner0/buffer_matching_sids_3" BEL
+        "scanner0/buffer_matching_sids_2" BEL
+        "scanner0/buffer_matching_sids_1" BEL
+        "scanner0/buffer_matching_sids_0" BEL "scanner0/data_buffer_39" BEL
+        "scanner0/data_buffer_38" BEL "scanner0/data_buffer_37" BEL
+        "scanner0/data_buffer_36" BEL "scanner0/data_buffer_35" BEL
+        "scanner0/data_buffer_34" BEL "scanner0/data_buffer_33" BEL
+        "scanner0/data_buffer_32" BEL "scanner0/data_buffer_31" BEL
+        "scanner0/data_buffer_30" BEL "scanner0/data_buffer_29" BEL
+        "scanner0/data_buffer_28" BEL "scanner0/data_buffer_27" BEL
+        "scanner0/data_buffer_26" BEL "scanner0/data_buffer_25" BEL
+        "scanner0/data_buffer_24" BEL "scanner0/data_buffer_23" BEL
+        "scanner0/data_buffer_22" BEL "scanner0/data_buffer_21" BEL
+        "scanner0/data_buffer_20" BEL "scanner0/data_buffer_19" BEL
+        "scanner0/data_buffer_18" BEL "scanner0/data_buffer_17" BEL
+        "scanner0/data_buffer_16" BEL "scanner0/data_buffer_15" BEL
+        "scanner0/data_buffer_14" BEL "scanner0/data_buffer_13" BEL
+        "scanner0/data_buffer_12" BEL "scanner0/data_buffer_11" BEL
+        "scanner0/data_buffer_10" BEL "scanner0/data_buffer_9" BEL
+        "scanner0/data_buffer_8" BEL "scanner0/data_buffer_7" BEL
+        "scanner0/data_buffer_6" BEL "scanner0/data_buffer_5" BEL
+        "scanner0/data_buffer_4" BEL "scanner0/data_buffer_3" BEL
+        "scanner0/data_buffer_2" BEL "scanner0/data_buffer_1" BEL
+        "scanner0/data_buffer_0" BEL "clk_BUFGP/BUFG";
+TS_clk = PERIOD TIMEGRP "clk" 6 ns HIGH 50%;
+SCHEMATIC END;
+

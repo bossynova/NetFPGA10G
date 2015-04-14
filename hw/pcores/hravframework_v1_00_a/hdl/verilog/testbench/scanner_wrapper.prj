@@ -1,0 +1,2 @@
+verilog work "../simple_scanner.v"
+verilog work "../scanner_wrapper.v"

@@ -1,0 +1,372 @@
+module sram_core
+  #(
+    parameter C_FAMILY = "virtex5",
+    parameter USER_MAGIC_CODE = 32'h1234cafe,
+	parameter C_BASEADDR=32'h80000000,
+	parameter C_HIGHADDR=32'h80003FFF,
+    // Master AXI Lite Data Width
+    parameter DATA_WIDTH=32,
+    parameter ADDR_WIDTH=32,
+    
+    parameter integer MASTERBANK_PIN_WIDTH = 3,
+	parameter integer NUM_MEM_CHIPS      = 3,
+	parameter integer NUM_MEM_INPUTS     = 6,
+	parameter integer MEM_WIDTH          = 36,
+	parameter integer MEM_ADDR_WIDTH     = 19,
+	parameter integer MEM_CQ_WIDTH       = 1,
+	parameter integer MEM_CLK_WIDTH      = 1,
+	parameter integer MEM_BW_WIDTH       = 4
+    )
+   (   
+	input                           memclk,
+	input                           memclk_270,
+	input                           memclk_200,
+	
+	input user_ad_w_n_0,
+	input user_d_w_n_0,
+	input [MEM_ADDR_WIDTH-1:0] user_ad_wr_0,
+	input [2*MEM_BW_WIDTH-1:0] user_bw_n_0,
+	input [2*MEM_WIDTH-1:0] user_dw_0,
+	input user_r_n_0,
+	input [MEM_ADDR_WIDTH-1:0] user_ad_rd_0,         
+	output user_wr_full_0,
+	output user_rd_full_0,
+	output [2*MEM_WIDTH-1:0] user_qr_0,
+	output user_qr_valid_0,
+	output cal_done_0,
+    
+	input user_ad_w_n_1,
+	input user_d_w_n_1,
+	input [MEM_ADDR_WIDTH-1:0] user_ad_wr_1,
+	input [2*MEM_BW_WIDTH-1:0] user_bw_n_1,
+	input [2*MEM_WIDTH-1:0] user_dw_1,
+	input user_r_n_1,
+	input [MEM_ADDR_WIDTH-1:0] user_ad_rd_1,         
+	output user_wr_full_1,
+	output user_rd_full_1,
+	output [2*MEM_WIDTH-1:0] user_qr_1,
+	output user_qr_valid_1,
+	output cal_done_1,
+    
+	input user_ad_w_n_2,
+	input user_d_w_n_2,
+	input [MEM_ADDR_WIDTH-1:0] user_ad_wr_2,
+	input [2*MEM_BW_WIDTH-1:0] user_bw_n_2,
+	input [2*MEM_WIDTH-1:0] user_dw_2,
+	input user_r_n_2,
+	input [MEM_ADDR_WIDTH-1:0] user_ad_rd_2,         
+	output user_wr_full_2,
+	output user_rd_full_2,
+	output [2*MEM_WIDTH-1:0] user_qr_2,
+	output user_qr_valid_2,
+	output cal_done_2,
+    
+	input [(MEM_WIDTH)-1:0]  qdr_q_0,
+	input [MEM_CQ_WIDTH-1:0]    qdr_cq_0,
+	input [MEM_CQ_WIDTH-1:0]    qdr_cq_n_0,
+	output [MEM_CLK_WIDTH-1:0]  qdr_c_0,
+	output [MEM_CLK_WIDTH-1:0]  qdr_c_n_0,
+	output             qdr_dll_off_n_0,
+	output [MEM_CLK_WIDTH-1:0]  qdr_k_0,
+	output [MEM_CLK_WIDTH-1:0]  qdr_k_n_0,
+	output [MEM_ADDR_WIDTH-1:0] qdr_sa_0,
+	output [(MEM_BW_WIDTH)-1:0]   qdr_bw_n_0,
+	output             qdr_w_n_0,
+	output [(MEM_WIDTH)-1:0]  qdr_d_0,
+	output             qdr_r_n_0,
+
+	input [(MEM_WIDTH)-1:0]  qdr_q_1,
+	input [MEM_CQ_WIDTH-1:0]    qdr_cq_1,
+	input [MEM_CQ_WIDTH-1:0]    qdr_cq_n_1,
+	output [MEM_CLK_WIDTH-1:0]  qdr_c_1,
+	output [MEM_CLK_WIDTH-1:0]  qdr_c_n_1,
+	output             qdr_dll_off_n_1,
+	output [MEM_CLK_WIDTH-1:0]  qdr_k_1,
+	output [MEM_CLK_WIDTH-1:0]  qdr_k_n_1,
+	output [MEM_ADDR_WIDTH-1:0] qdr_sa_1,
+	output [(MEM_BW_WIDTH)-1:0]   qdr_bw_n_1,
+	output             qdr_w_n_1,
+	output [(MEM_WIDTH)-1:0]  qdr_d_1,
+	output             qdr_r_n_1,
+
+	input [(MEM_WIDTH)-1:0]  qdr_q_2,
+	input [MEM_CQ_WIDTH-1:0]    qdr_cq_2,
+	input [MEM_CQ_WIDTH-1:0]    qdr_cq_n_2,
+	output [MEM_CLK_WIDTH-1:0]  qdr_c_2,
+	output [MEM_CLK_WIDTH-1:0]  qdr_c_n_2,
+	output             qdr_dll_off_n_2,
+	output [MEM_CLK_WIDTH-1:0]  qdr_k_2,
+	output [MEM_CLK_WIDTH-1:0]  qdr_k_n_2,
+	output [MEM_ADDR_WIDTH-1:0] qdr_sa_2,
+	output [(MEM_BW_WIDTH)-1:0]   qdr_bw_n_2,
+	output             qdr_w_n_2,
+	output [(MEM_WIDTH)-1:0]  qdr_d_2,
+	output             qdr_r_n_2,
+
+	/*synthesis syn_keep = 1 */(* S = "TRUE" *)
+	input  [MASTERBANK_PIN_WIDTH-1:0]  masterbank_sel_pin,
+
+	input		locked
+    );
+	 
+	wire memclk_180;
+   wire memreset, memreset_180, memreset_270, memreset_200;
+	
+	localparam IODELAY_GRP = "IODELAY_MIG";
+	wire idelay_ctrl_rdy;
+
+	qdrii_top #(
+		.ADDR_WIDTH(MEM_ADDR_WIDTH),
+		.BURST_LENGTH(4),
+		.BW_WIDTH(MEM_BW_WIDTH),
+		.CLK_PERIOD(10000),
+		//.CLK_FREQ(160),
+		.CLK_WIDTH(MEM_CLK_WIDTH),
+		.CQ_WIDTH(MEM_CQ_WIDTH),
+		.DATA_WIDTH(MEM_WIDTH),
+		.DEBUG_EN(0),
+		.HIGH_PERFORMANCE_MODE("TRUE"),
+		.IODELAY_GRP(IODELAY_GRP),
+		.MEMORY_WIDTH(36),
+		.SIM_ONLY(1)) 
+		qdrii_controller0
+		(
+			.clk0(memclk),
+			.clk180(memclk_180),
+			.clk270(memclk_270),
+			.user_rst_0(memreset),
+			.user_rst_180(memreset_180),
+			.user_rst_270(memreset_270),
+			.user_ad_w_n(user_ad_w_n_0),
+			.user_d_w_n(user_d_w_n_0),
+			.user_ad_wr(user_ad_wr_0),
+			.user_bwh_n(user_bw_n_0[2*MEM_BW_WIDTH-1:MEM_BW_WIDTH]),
+			.user_bwl_n(user_bw_n_0[MEM_BW_WIDTH-1:0]),
+			.user_dwh(user_dw_0[2*MEM_WIDTH-1:MEM_WIDTH]),
+			.user_dwl(user_dw_0[MEM_WIDTH-1:0]),
+			.user_r_n(user_r_n_0),
+			.user_ad_rd(user_ad_rd_0),         
+			.user_wr_full(user_wr_full_0),
+			.user_rd_full(user_rd_full_0),
+			.user_qrh(user_qr_0[2*MEM_WIDTH-1:MEM_WIDTH]),
+			.user_qrl(user_qr_0[MEM_WIDTH-1:0]),
+			.user_qr_valid(user_qr_valid_0),
+			.idelay_ctrl_rdy(idelay_ctrl_rdy),
+			.qdr_q(qdr_q_0), 
+			.qdr_cq(qdr_cq_0), 
+			.qdr_cq_n(qdr_cq_n_0), 
+			.qdr_c(qdr_c_0),
+			.qdr_c_n(qdr_c_n_0),
+			.qdr_dll_off_n(qdr_dll_off_n_0),
+			.qdr_k(qdr_k_0),
+			.qdr_k_n(qdr_k_n_0),
+			.qdr_sa(qdr_sa_0),
+			.qdr_bw_n(qdr_bw_n_0),
+			.qdr_w_n(qdr_w_n_0),
+			.qdr_d(qdr_d_0),
+			.qdr_r_n(qdr_r_n_0),
+			.cal_done(cal_done_0),//next_cal_done[i]),
+			.dbg_idel_up_all        (1'b0),
+			.dbg_idel_down_all      (1'b0),
+			.dbg_idel_up_q_cq       (1'b0),
+			.dbg_idel_down_q_cq     (1'b0),
+			.dbg_idel_up_q_cq_n     (1'b0),
+			.dbg_idel_down_q_cq_n   (1'b0),
+			.dbg_idel_up_cq         (1'b0),
+			.dbg_idel_down_cq       (1'b0),
+			.dbg_idel_up_cq_n       (1'b0),
+			.dbg_idel_down_cq_n     (1'b0),
+			.dbg_sel_idel_q_cq      ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_q_cq  (1'b0),
+			.dbg_sel_idel_q_cq_n    ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_q_cq_n  (1'b0),
+			.dbg_sel_idel_cq        ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_cq    (1'b0),
+			.dbg_sel_idel_cq_n      ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_cq_n  (1'b0)
+	);
+	
+	qdrii_top #(
+		.ADDR_WIDTH(MEM_ADDR_WIDTH),
+		.BURST_LENGTH(4),
+		.BW_WIDTH(MEM_BW_WIDTH),
+		.CLK_PERIOD(10000),
+		//.CLK_FREQ(160),
+		.CLK_WIDTH(MEM_CLK_WIDTH),
+		.CQ_WIDTH(MEM_CQ_WIDTH),
+		.DATA_WIDTH(MEM_WIDTH),
+		.DEBUG_EN(0),
+		.HIGH_PERFORMANCE_MODE("TRUE"),
+		.IODELAY_GRP(IODELAY_GRP),
+		.MEMORY_WIDTH(36),
+		.SIM_ONLY(1)) 
+		qdrii_controller1
+		(
+			.clk0(memclk),
+			.clk180(memclk_180),
+			.clk270(memclk_270),
+			.user_rst_0(memreset),
+			.user_rst_180(memreset_180),
+			.user_rst_270(memreset_270),
+			.user_ad_w_n(user_ad_w_n_1),
+			.user_d_w_n(user_d_w_n_1),
+			.user_ad_wr(user_ad_wr_1),
+			.user_bwh_n(user_bw_n_1[2*MEM_BW_WIDTH-1:MEM_BW_WIDTH]),
+			.user_bwl_n(user_bw_n_1[MEM_BW_WIDTH-1:0]),
+			.user_dwl(user_dw_1[2*MEM_WIDTH-1:MEM_WIDTH]),
+			.user_dwh(user_dw_1[MEM_WIDTH-1:0]),
+			.user_r_n(user_r_n_1),
+			.user_ad_rd(user_ad_rd_1),         
+			.user_wr_full(user_wr_full_1),
+			.user_rd_full(user_rd_full_1),
+			.user_qrl(user_qr_1[2*MEM_WIDTH-1:MEM_WIDTH]),
+			.user_qrh(user_qr_1[MEM_WIDTH-1:0]),
+			.user_qr_valid(user_qr_valid_1),
+			.idelay_ctrl_rdy(idelay_ctrl_rdy),
+			.qdr_q(qdr_q_1), 
+			.qdr_cq(qdr_cq_1), 
+			.qdr_cq_n(qdr_cq_n_1), 
+			.qdr_c(qdr_c_1),
+			.qdr_c_n(qdr_c_n_1),
+			.qdr_dll_off_n(qdr_dll_off_n_1),
+			.qdr_k(qdr_k_1),
+			.qdr_k_n(qdr_k_n_1),
+			.qdr_sa(qdr_sa_1),
+			.qdr_bw_n(qdr_bw_n_1),
+			.qdr_w_n(qdr_w_n_1),
+			.qdr_d(qdr_d_1),
+			.qdr_r_n(qdr_r_n_1),
+			.cal_done(cal_done_1),//next_cal_done[i]),
+			.dbg_idel_up_all        (1'b0),
+			.dbg_idel_down_all      (1'b0),
+			.dbg_idel_up_q_cq       (1'b0),
+			.dbg_idel_down_q_cq     (1'b0),
+			.dbg_idel_up_q_cq_n     (1'b0),
+			.dbg_idel_down_q_cq_n   (1'b0),
+			.dbg_idel_up_cq         (1'b0),
+			.dbg_idel_down_cq       (1'b0),
+			.dbg_idel_up_cq_n       (1'b0),
+			.dbg_idel_down_cq_n     (1'b0),
+			.dbg_sel_idel_q_cq      ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_q_cq  (1'b0),
+			.dbg_sel_idel_q_cq_n    ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_q_cq_n  (1'b0),
+			.dbg_sel_idel_cq        ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_cq    (1'b0),
+			.dbg_sel_idel_cq_n      ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_cq_n  (1'b0)
+	);
+	
+	qdrii_top #(
+		.ADDR_WIDTH(MEM_ADDR_WIDTH),
+		.BURST_LENGTH(4),
+		.BW_WIDTH(MEM_BW_WIDTH),
+		.CLK_PERIOD(10000),
+		//.CLK_FREQ(160),
+		.CLK_WIDTH(MEM_CLK_WIDTH),
+		.CQ_WIDTH(MEM_CQ_WIDTH),
+		.DATA_WIDTH(MEM_WIDTH),
+		.DEBUG_EN(0),
+		.HIGH_PERFORMANCE_MODE("TRUE"),
+		.IODELAY_GRP(IODELAY_GRP),
+		.MEMORY_WIDTH(36),
+		.SIM_ONLY(1)) 
+		qdrii_controller2
+		(
+			.clk0(memclk),
+			.clk180(memclk_180),
+			.clk270(memclk_270),
+			.user_rst_0(memreset),
+			.user_rst_180(memreset_180),
+			.user_rst_270(memreset_270),
+			.user_ad_w_n(user_ad_w_n_2),
+			.user_d_w_n(user_d_w_n_2),
+			.user_ad_wr(user_ad_wr_2),
+			.user_bwh_n(user_bw_n_2[2*MEM_BW_WIDTH-1:MEM_BW_WIDTH]),
+			.user_bwl_n(user_bw_n_2[MEM_BW_WIDTH-1:0]),
+			.user_dwl(user_dw_2[2*MEM_WIDTH-1:MEM_WIDTH]),
+			.user_dwh(user_dw_2[MEM_WIDTH-1:0]),
+			.user_r_n(user_r_n_2),
+			.user_ad_rd(user_ad_rd_2),         
+			.user_wr_full(user_wr_full_2),
+			.user_rd_full(user_rd_full_2),
+			.user_qrl(user_qr_2[2*MEM_WIDTH-1:MEM_WIDTH]),
+			.user_qrh(user_qr_2[MEM_WIDTH-1:0]),
+			.user_qr_valid(user_qr_valid_2),
+			.idelay_ctrl_rdy(idelay_ctrl_rdy),
+			.qdr_q(qdr_q_2), 
+			.qdr_cq(qdr_cq_2), 
+			.qdr_cq_n(qdr_cq_n_2), 
+			.qdr_c(qdr_c_2),
+			.qdr_c_n(qdr_c_n_2),
+			.qdr_dll_off_n(qdr_dll_off_n_2),
+			.qdr_k(qdr_k_2),
+			.qdr_k_n(qdr_k_n_2),
+			.qdr_sa(qdr_sa_2),
+			.qdr_bw_n(qdr_bw_n_2),
+			.qdr_w_n(qdr_w_n_2),
+			.qdr_d(qdr_d_2),
+			.qdr_r_n(qdr_r_n_2),
+			.cal_done(cal_done_2),//next_cal_done[i]),
+			.dbg_idel_up_all        (1'b0),
+			.dbg_idel_down_all      (1'b0),
+			.dbg_idel_up_q_cq       (1'b0),
+			.dbg_idel_down_q_cq     (1'b0),
+			.dbg_idel_up_q_cq_n     (1'b0),
+			.dbg_idel_down_q_cq_n   (1'b0),
+			.dbg_idel_up_cq         (1'b0),
+			.dbg_idel_down_cq       (1'b0),
+			.dbg_idel_up_cq_n       (1'b0),
+			.dbg_idel_down_cq_n     (1'b0),
+			.dbg_sel_idel_q_cq      ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_q_cq  (1'b0),
+			.dbg_sel_idel_q_cq_n    ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_q_cq_n  (1'b0),
+			.dbg_sel_idel_cq        ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_cq    (1'b0),
+			.dbg_sel_idel_cq_n      ({MEM_CQ_WIDTH{1'b0}}),
+			.dbg_sel_all_idel_cq_n  (1'b0)
+	);
+
+(* KEEP = "TRUE" *) wire [MASTERBANK_PIN_WIDTH-1:0] masterbank_sel_pin_out/*synthesis syn_keep = 1 */;
+
+  genvar dpw_i;
+  generate
+    for(dpw_i = 0; dpw_i < MASTERBANK_PIN_WIDTH; dpw_i=dpw_i+1)begin : DUMMY_INST1
+      MUXCY DUMMY_INST2
+        (
+         .O  (masterbank_sel_pin_out[dpw_i]),
+         .CI (masterbank_sel_pin[dpw_i]),
+         .DI (1'b0),
+         .S  (1'b1)
+         )/* synthesis syn_noprune = 1 */;
+    end
+  endgenerate
+  
+
+
+    qdrii_infrastructure
+    u_qdrii_infrastructure
+    (
+     .sys_rst_n              (!reset),
+     .locked                 (locked),
+     .user_rst_0             (memreset),
+     .user_rst_180           (memreset_180),
+     .user_rst_270           (memreset_270),
+     .user_rst_200           (memreset_200),
+     .idelay_ctrl_rdy        (idelay_ctrl_rdy),
+     .clk0                   (memclk),
+     .clk180                 (memclk_180),
+     .clk270                 (memclk_270),
+     .clk200                 (memclk_200)
+    );
+
+
+    qdrii_idelay_ctrl #(.IODELAY_GRP(IODELAY_GRP)) u_qdrii_idelay_ctrl
+    (
+     .user_rst_200(memreset_200),
+     .idelay_ctrl_rdy(idelay_ctrl_rdy),
+     .clk200(memclk_200)
+    );
+
+endmodule

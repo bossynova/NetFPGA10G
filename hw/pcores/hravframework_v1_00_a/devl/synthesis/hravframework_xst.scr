@@ -1,0 +1,11 @@
+run
+-opt_level 2
+-opt_mode speed
+-ifmt mixed
+-ifn /home/eagle/NetFPGA10/contrib-projects/hravcore/hw/pcores/hravframework_v1_00_a/devl/synthesis/hravframework_xst.prj
+-top hravframework
+-p virtex6
+-ofn /home/eagle/NetFPGA10/contrib-projects/hravcore/hw/pcores/hravframework_v1_00_a/devl/synthesis/hravframework_xst.ngc
+-iobuf NO
+-rtlview YES
+-hierarchy_separator /

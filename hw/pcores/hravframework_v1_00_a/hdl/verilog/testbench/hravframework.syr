@@ -1,0 +1,1032 @@
+Release 13.4 - xst O.87xd (lin64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: hravframework.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "hravframework.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "hravframework"
+Output Format                      : NGC
+Target Device                      : xc5vtx240t-2-ff1759
+
+---- Source Options
+Top Module Name                    : hravframework
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../simple_scanner.v" in library work
+Compiling verilog file "../fifo72x128.v" in library work
+Module <simple_scanner> compiled
+Compiling verilog file "../fifo288x128.v" in library work
+Module <fifo72x128> compiled
+Compiling verilog file "../scanner_wrapper.v" in library work
+Module <fifo288x128> compiled
+Compiling verilog file "../dispatcher.v" in library work
+Module <scanner_wrapper> compiled
+Compiling verilog file "../collector.v" in library work
+Module <dispatcher> compiled
+Compiling verilog file "../hravframework.v" in library work
+Module <collector> compiled
+Module <hravframework> compiled
+No errors in compilation
+Analysis of file <"hravframework.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <hravframework> in library <work> with parameters.
+	C_BASEADDR = "11111111111111111111111111111111"
+	C_HIGHADDR = "00000000000000000000000000000000"
+	C_M_AXIS_DATA_WIDTH = "00000000000000000000000100000000"
+	C_M_AXIS_TUSER_WIDTH = "00000000000000000000000010000000"
+	C_S_AXIS_DATA_WIDTH = "00000000000000000000000100000000"
+	C_S_AXIS_TUSER_WIDTH = "00000000000000000000000010000000"
+	DST_PORT_POS = "00000000000000000000000000011000"
+	MASTERBANK_PIN_WIDTH = 3
+	MEM_ADDR_WIDTH = 19
+	MEM_BW_WIDTH = 4
+	MEM_CLK_WIDTH = 1
+	MEM_CQ_WIDTH = 1
+	MEM_WIDTH = 36
+	NUM_MEM_CHIPS = 3
+	NUM_MEM_INPUTS = 6
+	SRC_PORT_POS = "00000000000000000000000000010000"
+	TOTAL_LENGTH_POS = "00000000000000000000000000000000"
+
+Analyzing hierarchy for module <dispatcher> in library <work> with parameters.
+	HEADER = "0"
+	PACKET = "1"
+
+Analyzing hierarchy for module <scanner_wrapper> in library <work> with parameters.
+	SID_0 = "000"
+	SID_1 = "001"
+	SID_2 = "010"
+	SID_HANLE = "10"
+	SID_IDLE = "00"
+	SID_WAIT = "01"
+	S_LOOP = "01"
+	S_WAIT = "00"
+
+Analyzing hierarchy for module <collector> in library <work>.
+
+Analyzing hierarchy for module <simple_scanner> in library <work> with parameters.
+	PATTERN_0 = "00001010000010110000110000001101"
+	PATTERN_1 = "00011010000110110001110000011101"
+	PATTERN_2 = "00101010001010110010110000101101"
+	PATTERN_3 = "00111010001110110011110000111101"
+	PATTERN_4 = "01001010010010110100110001001101"
+	PATTERN_5 = "01011010010110110101110001011101"
+	PATTERN_6 = "01101010011010110110110001101101"
+	PATTERN_7 = "01111010011110110111110001111101"
+	STATE_IDLE = "000"
+	STATE_SEND_SID = "001"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <hravframework>.
+	C_BASEADDR = 32'b11111111111111111111111111111111
+	C_HIGHADDR = 32'b00000000000000000000000000000000
+	C_M_AXIS_DATA_WIDTH = 32'sb00000000000000000000000100000000
+	C_M_AXIS_TUSER_WIDTH = 32'sb00000000000000000000000010000000
+	C_S_AXIS_DATA_WIDTH = 32'sb00000000000000000000000100000000
+	C_S_AXIS_TUSER_WIDTH = 32'sb00000000000000000000000010000000
+	DST_PORT_POS = 32'sb00000000000000000000000000011000
+	MASTERBANK_PIN_WIDTH = 3
+	MEM_ADDR_WIDTH = 19
+	MEM_BW_WIDTH = 4
+	MEM_CLK_WIDTH = 1
+	MEM_CQ_WIDTH = 1
+	MEM_WIDTH = 36
+	NUM_MEM_CHIPS = 3
+	NUM_MEM_INPUTS = 6
+	SRC_PORT_POS = 32'sb00000000000000000000000000010000
+	TOTAL_LENGTH_POS = 32'sb00000000000000000000000000000000
+Module <hravframework> is correct for synthesis.
+ 
+    Set user-defined property "S =  TRUE" for signal <masterbank_sel_pin> in unit <hravframework>.
+Analyzing module <dispatcher> in library <work>.
+	HEADER = 1'b0
+	PACKET = 1'b1
+Module <dispatcher> is correct for synthesis.
+ 
+Analyzing module <scanner_wrapper> in library <work>.
+	SID_0 = 3'b000
+	SID_1 = 3'b001
+	SID_2 = 3'b010
+	SID_HANLE = 2'b10
+	SID_IDLE = 2'b00
+	SID_WAIT = 2'b01
+	S_LOOP = 2'b01
+	S_WAIT = 2'b00
+Module <scanner_wrapper> is correct for synthesis.
+ 
+Analyzing module <simple_scanner> in library <work>.
+	PATTERN_0 = 32'b00001010000010110000110000001101
+	PATTERN_1 = 32'b00011010000110110001110000011101
+	PATTERN_2 = 32'b00101010001010110010110000101101
+	PATTERN_3 = 32'b00111010001110110011110000111101
+	PATTERN_4 = 32'b01001010010010110100110001001101
+	PATTERN_5 = 32'b01011010010110110101110001011101
+	PATTERN_6 = 32'b01101010011010110110110001101101
+	PATTERN_7 = 32'b01111010011110110111110001111101
+	STATE_IDLE = 3'b000
+	STATE_SEND_SID = 3'b001
+Module <simple_scanner> is correct for synthesis.
+ 
+Analyzing module <collector> in library <work>.
+WARNING:Xst:2211 - "../fifo288x128.v" line 92: Instantiating black box module <fifo288x128>.
+WARNING:Xst:2211 - "../fifo72x128.v" line 103: Instantiating black box module <fifo72x128>.
+Module <collector> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <result_reg<255>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<254>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<253>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<252>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<251>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<250>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<249>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<248>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<247>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<246>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<245>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<244>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<243>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<242>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<241>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<240>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<239>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<238>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<237>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<236>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<235>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<234>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<233>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<232>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<231>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<230>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<229>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<228>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<227>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<226>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<225>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<224>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<31>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<30>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<29>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<28>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<27>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<26>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<25>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<24>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<23>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<22>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<21>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<20>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<19>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<18>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<17>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<16>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<15>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<14>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<13>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<12>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<11>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<10>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<9>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<8>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<7>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<6>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<5>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<4>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<3>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <dispatcher>.
+    Related source file is "../dispatcher.v".
+WARNING:Xst:647 - Input <s_axis_tuser> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 24-bit register for signal <dpt_id_scn>.
+    Found 32-bit register for signal <dpt_poff_scn>.
+    Found 8-bit register for signal <dpt_cmd_scn>.
+    Found 1-bit register for signal <state>.
+    Found 1-bit register for signal <tran_end>.
+    Summary:
+	inferred  66 D-type flip-flop(s).
+Unit <dispatcher> synthesized.
+
+
+Synthesizing Unit <simple_scanner>.
+    Related source file is "../simple_scanner.v".
+WARNING:Xst:646 - Signal <found_sid> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 2                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 48-bit register for signal <buffer_matching_sids>.
+    Found 40-bit register for signal <data_buffer>.
+    Found 48-bit register for signal <matching_sids>.
+    Found 1-bit register for signal <reset_result_reg>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred 137 D-type flip-flop(s).
+Unit <simple_scanner> synthesized.
+
+
+Synthesizing Unit <scanner_wrapper>.
+    Related source file is "../scanner_wrapper.v".
+WARNING:Xst:647 - Input <dpt_poff_scn> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found finite state machine <FSM_1> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 2                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_2> for signal <sid_state>.
+    -----------------------------------------------------------------------
+    | States             | 2                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 1                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 32-bit register for signal <buf_bvld>.
+    Found 8-bit register for signal <buf_cmd>.
+    Found 256-bit register for signal <buf_data>.
+    Found 1-bit register for signal <buf_end>.
+    Found 32-bit register for signal <buf_id>.
+    Found 32-bit register for signal <read_status>.
+    Found 1-bit register for signal <result_ready>.
+    Found 192-bit register for signal <result_reg<223:32>>.
+    Found 3-bit register for signal <result_reg<2:0>>.
+    Found 3-bit adder for signal <result_reg_31_0$add0000> created at line 208.
+    Found 3-bit up counter for signal <sid_index>.
+INFO:Xst:738 - HDL ADVISOR - 256 flip-flops were inferred for signal <buf_data>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Summary:
+	inferred   2 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred 557 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <scanner_wrapper> synthesized.
+
+
+Synthesizing Unit <collector>.
+    Related source file is "../collector.v".
+WARNING:Xst:646 - Signal <ctrl_full> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <ctrl_dout<71:48>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit down counter for signal <count>.
+    Found 8-bit up counter for signal <len>.
+    Found 1-bit register for signal <sending>.
+    Found 8-bit register for signal <tlen>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   9 D-type flip-flop(s).
+Unit <collector> synthesized.
+
+
+Synthesizing Unit <hravframework>.
+    Related source file is "../hravframework.v".
+WARNING:Xst:1306 - Output <qdr_k_n_0> is never assigned.
+WARNING:Xst:1306 - Output <qdr_k_n_1> is never assigned.
+WARNING:Xst:1306 - Output <qdr_k_n_2> is never assigned.
+WARNING:Xst:647 - Input <S_AXI_ARADDR> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <qdr_c_n_0> is never assigned.
+WARNING:Xst:1306 - Output <qdr_c_n_1> is never assigned.
+WARNING:Xst:1306 - Output <qdr_c_n_2> is never assigned.
+WARNING:Xst:1306 - Output <qdr_c_0> is never assigned.
+WARNING:Xst:1306 - Output <qdr_c_1> is never assigned.
+WARNING:Xst:1306 - Output <qdr_c_2> is never assigned.
+WARNING:Xst:647 - Input <S_AXI_ACLK> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <masterbank_sel_pin> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <qdr_k_0> is never assigned.
+WARNING:Xst:1306 - Output <qdr_k_1> is never assigned.
+WARNING:Xst:1306 - Output <qdr_k_2> is never assigned.
+WARNING:Xst:647 - Input <S_AXI_AWADDR> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <S_AXI_RRESP> is never assigned.
+WARNING:Xst:1306 - Output <qdr_d_0> is never assigned.
+WARNING:Xst:1306 - Output <qdr_d_1> is never assigned.
+WARNING:Xst:1306 - Output <qdr_d_2> is never assigned.
+WARNING:Xst:1306 - Output <S_AXI_BVALID> is never assigned.
+WARNING:Xst:647 - Input <S_AXI_WVALID> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <qdr_cq_0<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <qdr_cq_1<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <S_AXI_RVALID> is never assigned.
+WARNING:Xst:647 - Input <qdr_cq_2<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <qdr_cq_n_0<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <qdr_cq_n_1<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <qdr_cq_n_2<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <S_AXI_BRESP> is never assigned.
+WARNING:Xst:647 - Input <S_AXI_AWVALID> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <S_AXI_BREADY> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <S_AXI_ARVALID> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <S_AXI_WREADY> is never assigned.
+WARNING:Xst:647 - Input <S_AXI_ARESETN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <S_AXI_RREADY> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <core_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <S_AXI_RDATA> is never assigned.
+WARNING:Xst:1306 - Output <qdr_bw_n_0> is never assigned.
+WARNING:Xst:1306 - Output <qdr_sa_0> is never assigned.
+WARNING:Xst:647 - Input <locked> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <qdr_sa_1> is never assigned.
+WARNING:Xst:1306 - Output <qdr_bw_n_1> is never assigned.
+WARNING:Xst:1306 - Output <S_AXI_AWREADY> is never assigned.
+WARNING:Xst:1306 - Output <qdr_sa_2> is never assigned.
+WARNING:Xst:1306 - Output <qdr_bw_n_2> is never assigned.
+WARNING:Xst:1306 - Output <qdr_r_n_0> is never assigned.
+WARNING:Xst:1306 - Output <qdr_r_n_1> is never assigned.
+WARNING:Xst:1306 - Output <qdr_r_n_2> is never assigned.
+WARNING:Xst:1306 - Output <qdr_dll_off_n_0> is never assigned.
+WARNING:Xst:1306 - Output <qdr_dll_off_n_1> is never assigned.
+WARNING:Xst:647 - Input <sram_clk_200> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <S_AXI_ARREADY> is never assigned.
+WARNING:Xst:1306 - Output <qdr_dll_off_n_2> is never assigned.
+WARNING:Xst:647 - Input <S_AXI_WDATA> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <qdr_w_n_0> is never assigned.
+WARNING:Xst:1306 - Output <qdr_w_n_1> is never assigned.
+WARNING:Xst:1306 - Output <qdr_w_n_2> is never assigned.
+WARNING:Xst:647 - Input <core_clk_270> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <S_AXI_WSTRB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <qdr_q_0> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <qdr_q_1> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <qdr_q_2> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1780 - Signal <scn_poff_clt> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <ctrl_en_scn> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+Unit <hravframework> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 3-bit adder                                           : 1
+# Counters                                             : 3
+ 3-bit up counter                                      : 1
+ 8-bit down counter                                    : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 213
+ 1-bit register                                        : 201
+ 24-bit register                                       : 1
+ 256-bit register                                      : 1
+ 32-bit register                                       : 4
+ 40-bit register                                       : 1
+ 48-bit register                                       : 2
+ 8-bit register                                        : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_2> for best encoding.
+Optimizing FSM <awrapper/sid_state/FSM> on signal <sid_state[1:1]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 0
+ 01    | 1
+-------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <awrapper/state/FSM> on signal <state[1:1]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 0
+ 01    | 1
+-------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <awrapper/scanner0/state/FSM> on signal <state[1:1]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 0
+ 001   | 1
+-------------------
+WARNING:Xst:1710 - FF/Latch <result_reg_89> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_87> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_91> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_92> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_90> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_94> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_95> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_93> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_112> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_113> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_114> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_115> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_117> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_118> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_116> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_120> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_121> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_119> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_123> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_124> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_122> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_125> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_126> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_127> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_48> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_49> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_50> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_51> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_53> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_54> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_52> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_56> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_57> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_55> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_59> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_60> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_58> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_61> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_62> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_63> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_80> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_82> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_83> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_81> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_85> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_86> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_84> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_88> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_185> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_183> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_187> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_188> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_186> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_190> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_191> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_189> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_209> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_210> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_208> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_212> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_213> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_211> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_214> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_215> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_216> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_217> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_219> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_220> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_218> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_222> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_223> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_221> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_145> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_146> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_144> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_148> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_149> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_147> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_150> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_151> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_152> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_153> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_155> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_156> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_154> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_158> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_159> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_157> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_176> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_177> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_178> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_179> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_181> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_182> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_180> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <result_reg_184> (without init value) has a constant value of 0 in block <awrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <buf_id_24> of sequential type is unconnected in block <awrapper>.
+WARNING:Xst:2677 - Node <buf_id_25> of sequential type is unconnected in block <awrapper>.
+WARNING:Xst:2677 - Node <buf_id_26> of sequential type is unconnected in block <awrapper>.
+WARNING:Xst:2677 - Node <buf_id_27> of sequential type is unconnected in block <awrapper>.
+WARNING:Xst:2677 - Node <buf_id_28> of sequential type is unconnected in block <awrapper>.
+WARNING:Xst:2677 - Node <buf_id_29> of sequential type is unconnected in block <awrapper>.
+WARNING:Xst:2677 - Node <buf_id_30> of sequential type is unconnected in block <awrapper>.
+WARNING:Xst:2677 - Node <buf_id_31> of sequential type is unconnected in block <awrapper>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 3
+# Adders/Subtractors                                   : 1
+ 3-bit adder                                           : 1
+# Counters                                             : 3
+ 3-bit up counter                                      : 1
+ 8-bit down counter                                    : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 769
+ Flip-Flops                                            : 769
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <buf_id_24> in Unit <scanner_wrapper> is equivalent to the following 7 FFs/Latches, which will be removed : <buf_id_25> <buf_id_26> <buf_id_27> <buf_id_28> <buf_id_29> <buf_id_30> <buf_id_31> 
+WARNING:Xst:1710 - FF/Latch <buf_id_24> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <hravframework> ...
+
+Optimizing unit <dispatcher> ...
+
+Optimizing unit <simple_scanner> ...
+
+Optimizing unit <collector> ...
+
+Optimizing unit <scanner_wrapper> ...
+WARNING:Xst:1710 - FF/Latch <awrapper/result_reg_184> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_183> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_181> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_180> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_179> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_178> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_177> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_176> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_159> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_156> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_158> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_157> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_155> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_154> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_153> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_152> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_149> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_151> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_150> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_146> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_148> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_147> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_145> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_144> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_221> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_223> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_222> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_220> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_219> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_218> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_217> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_214> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_216> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_215> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_211> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_213> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_212> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_208> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_210> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_209> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_191> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_188> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_190> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_189> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_185> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_187> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_186> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_182> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_87> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_84> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_86> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_85> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_81> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_83> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_82> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_80> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_63> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_62> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_61> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_58> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_60> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_59> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_55> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_57> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_56> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_52> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_54> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_53> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_51> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_50> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_49> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_48> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_127> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_126> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_123> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_125> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_124> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_120> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_122> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_121> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_117> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_119> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_118> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_116> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_115> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_114> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_113> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_112> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_94> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_95> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_91> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_93> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_92> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_90> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_89> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <awrapper/result_reg_88> (without init value) has a constant value of 0 in block <hravframework>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_31> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_30> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_29> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_28> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_27> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_26> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_25> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_24> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_23> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_22> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_21> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_20> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_19> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_18> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_17> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_16> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_15> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_14> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_13> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_12> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_11> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_10> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_9> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_8> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_7> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_6> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_5> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_4> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_3> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_2> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_1> of sequential type is unconnected in block <hravframework>.
+WARNING:Xst:2677 - Node <dpt/dpt_poff_scn_0> of sequential type is unconnected in block <hravframework>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block hravframework, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 655
+ Flip-Flops                                            : 655
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : hravframework.ngr
+Top Level Output File Name         : hravframework
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 1307
+
+Cell Usage :
+# BELS                             : 936
+#      GND                         : 1
+#      INV                         : 21
+#      LUT2                        : 264
+#      LUT3                        : 185
+#      LUT4                        : 91
+#      LUT5                        : 256
+#      LUT6                        : 54
+#      MUXCY                       : 14
+#      MUXF7                       : 33
+#      VCC                         : 1
+#      XORCY                       : 16
+# FlipFlops/Latches                : 655
+#      FD                          : 1
+#      FDR                         : 142
+#      FDRE                        : 508
+#      FDSE                        : 4
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 711
+#      IBUF                        : 292
+#      OBUF                        : 419
+# Others                           : 2
+#      fifo288x128                 : 1
+#      fifo72x128                  : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vtx240tff1759-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             655  out of  149760     0%  
+ Number of Slice LUTs:                  871  out of  149760     0%  
+    Number used as Logic:               871  out of  149760     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    978
+   Number with an unused Flip Flop:     323  out of    978    33%  
+   Number with an unused LUT:           107  out of    978    10%  
+   Number of fully used LUT-FF pairs:   548  out of    978    56%  
+   Number of unique control sets:        14
+
+IO Utilization: 
+ Number of IOs:                        1307
+ Number of bonded IOBs:                 712  out of    680   104% (*) 
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+axi_aclk                           | BUFGP                  | 655   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 3.314ns (Maximum Frequency: 301.740MHz)
+   Minimum input arrival time before clock: 2.930ns
+   Maximum output required time after clock: 4.520ns
+   Maximum combinational path delay: 3.016ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'axi_aclk'
+  Clock period: 3.314ns (frequency: 301.740MHz)
+  Total number of paths / destination ports: 9452 / 1097
+-------------------------------------------------------------------------
+Delay:               3.314ns (Levels of Logic = 4)
+  Source:            awrapper/buf_bvld_22 (FF)
+  Destination:       awrapper/scanner0/data_buffer_0 (FF)
+  Source Clock:      axi_aclk rising
+  Destination Clock: axi_aclk rising
+
+  Data Path: awrapper/buf_bvld_22 to awrapper/scanner0/data_buffer_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             1   0.396   0.901  awrapper/buf_bvld_22 (awrapper/buf_bvld_22)
+     LUT6:I0->O            1   0.086   0.662  awrapper/char_vld63 (awrapper/char_vld63)
+     LUT4:I0->O            2   0.086   0.491  awrapper/char_vld121 (awrapper/char_vld121)
+     LUT6:I4->O           40   0.086   0.521  awrapper/scanner0/data_buffer_and00001 (awrapper/scanner0/data_buffer_and0000)
+     LUT3:I2->O            1   0.086   0.000  awrapper/scanner0/data_buffer_0_rstpot (awrapper/scanner0/data_buffer_0_rstpot)
+     FDR:D                    -0.022          awrapper/scanner0/data_buffer_0
+    ----------------------------------------
+    Total                      3.314ns (0.740ns logic, 2.574ns route)
+                                       (22.3% logic, 77.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'axi_aclk'
+  Total number of paths / destination ports: 1717 / 1391
+-------------------------------------------------------------------------
+Offset:              2.930ns (Levels of Logic = 4)
+  Source:            s_axis_tdata<11> (PAD)
+  Destination:       dpt/state (FF)
+  Destination Clock: axi_aclk rising
+
+  Data Path: s_axis_tdata<11> to dpt/state
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.694   0.905  s_axis_tdata_11_IBUF (s_axis_tdata_11_IBUF)
+     LUT6:I0->O            1   0.086   0.662  dpt/state_not000111 (dpt/state_not000111)
+     LUT4:I0->O            1   0.086   0.412  dpt/state_rstpot_SW0 (N74)
+     LUT6:I5->O            1   0.086   0.000  dpt/state_rstpot (dpt/state_rstpot)
+     FDR:D                    -0.022          dpt/state
+    ----------------------------------------
+    Total                      2.930ns (0.952ns logic, 1.978ns route)
+                                       (32.5% logic, 67.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'axi_aclk'
+  Total number of paths / destination ports: 458 / 442
+-------------------------------------------------------------------------
+Offset:              4.520ns (Levels of Logic = 4)
+  Source:            clt/count_5 (FF)
+  Destination:       m_axis_tlast (PAD)
+  Source Clock:      axi_aclk rising
+
+  Data Path: clt/count_5 to m_axis_tlast
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             2   0.396   0.604  clt/count_5 (clt/count_5)
+     LUT3:I0->O            1   0.086   0.412  clt/m_axis_tlast_cmp_eq0000_SW0 (N01)
+     LUT6:I5->O            3   0.086   0.421  clt/m_axis_tlast_cmp_eq0000 (clt/m_axis_tlast_cmp_eq0000)
+     LUT2:I1->O            1   0.086   0.286  clt/m_axis_tlast1 (m_axis_tlast_OBUF)
+     OBUF:I->O                 2.144          m_axis_tlast_OBUF (m_axis_tlast)
+    ----------------------------------------
+    Total                      4.520ns (2.798ns logic, 1.722ns route)
+                                       (61.9% logic, 38.1% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 344 / 303
+-------------------------------------------------------------------------
+Delay:               3.016ns (Levels of Logic = 2)
+  Source:            clt/ctrl:empty (PAD)
+  Destination:       m_axis_tvalid (PAD)
+
+  Data Path: clt/ctrl:empty to m_axis_tvalid
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    fifo72x128:empty       4   0.000   0.500  clt/ctrl (clt/ctrl_empty)
+     LUT3:I1->O            1   0.086   0.286  clt/m_axis_tvalid1 (m_axis_tvalid_OBUF)
+     OBUF:I->O                 2.144          m_axis_tvalid_OBUF (m_axis_tvalid)
+    ----------------------------------------
+    Total                      3.016ns (2.230ns logic, 0.786ns route)
+                                       (73.9% logic, 26.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.38 secs
+ 
+--> 
+
+
+Total memory usage is 576788 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  308 (   0 filtered)
+Number of infos    :   63 (   0 filtered)
+

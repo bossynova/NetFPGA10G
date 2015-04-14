@@ -1,0 +1,10 @@
+-batch 
+-create dma_benchmark 
+-ver 1.00.a 
+-dir /home/heckarim/works/netfpga10g/NetFPGA-10G-live-release_4.9.0/projects/reference_nic_1g/hw/ 
+-lang verilog 
+-bus axi4stream ms 
+-xps 
+-totalin 8
+-totalout 8
+-driver 

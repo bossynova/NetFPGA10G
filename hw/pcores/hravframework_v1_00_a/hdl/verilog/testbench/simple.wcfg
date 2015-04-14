@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/heckarim/work/netfpga10g/NetFPGA-10G-live-release_5.0.1/projects/hrav_framework/hw/pcores/hravframework_v1_00_a/hdl/verilog/testbench/tb_hravframework_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_hravframework" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="82" />
+   <wvobject fp_name="/tb_hravframework/m_axis_tdata" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_axis_tdata[255:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tdata[255:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/m_axis_tstrb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_axis_tstrb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tstrb[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/m_axis_tuser" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">m_axis_tuser[127:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tuser[127:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/m_axis_tvalid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/m_axis_tlast" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/m_axis_tready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">m_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/s_axis_tready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/s_axis_tdata" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s_axis_tdata[255:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tdata[255:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/s_axis_tstrb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s_axis_tstrb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tstrb[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/s_axis_tuser" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s_axis_tuser[127:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tuser[127:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/s_axis_tvalid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/s_axis_tlast" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_ACLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_ARESETN" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_AWADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_AWVALID" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_WDATA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_WSTRB" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WSTRB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_WVALID" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_BREADY" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_ARADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_ARVALID" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/S_AXI_RREADY" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">S_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/masterbank_sel_pin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">masterbank_sel_pin[2:0]</obj_property>
+      <obj_property name="ObjectShortName">masterbank_sel_pin[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/vecfile" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">vecfile[31:0]</obj_property>
+      <obj_property name="ObjectShortName">vecfile[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/core_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">core_clk</obj_property>
+      <obj_property name="ObjectShortName">core_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/core_resetn" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">core_resetn</obj_property>
+      <obj_property name="ObjectShortName">core_resetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">count[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/valid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">valid</obj_property>
+      <obj_property name="ObjectShortName">valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/user" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">user[127:0]</obj_property>
+      <obj_property name="ObjectShortName">user[127:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data[255:0]</obj_property>
+      <obj_property name="ObjectShortName">data[255:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/strb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">strb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">strb[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/last" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">last</obj_property>
+      <obj_property name="ObjectShortName">last</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/dpt_dvld_scn" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dpt_dvld_scn</obj_property>
+      <obj_property name="ObjectShortName">dpt_dvld_scn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/dpt_cmd_scn" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dpt_cmd_scn[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dpt_cmd_scn[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/dpt_id_scn" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dpt_id_scn[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dpt_id_scn[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/dpt_poff_scn" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dpt_poff_scn[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dpt_poff_scn[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/dpt_data_scn" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dpt_data_scn[255:0]</obj_property>
+      <obj_property name="ObjectShortName">dpt_data_scn[255:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/dpt_bvld_scn" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dpt_bvld_scn[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dpt_bvld_scn[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/dpt_end_scn" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dpt_end_scn</obj_property>
+      <obj_property name="ObjectShortName">dpt_end_scn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/scn_dvld_clt" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">scn_dvld_clt</obj_property>
+      <obj_property name="ObjectShortName">scn_dvld_clt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/scn_cmd_clt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">scn_cmd_clt[7:0]</obj_property>
+      <obj_property name="ObjectShortName">scn_cmd_clt[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/scn_id_clt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">scn_id_clt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">scn_id_clt[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/scn_data_clt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">scn_data_clt[255:0]</obj_property>
+      <obj_property name="ObjectShortName">scn_data_clt[255:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/scn_bvld_clt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">scn_bvld_clt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">scn_bvld_clt[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/scn_end_clt" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">scn_end_clt</obj_property>
+      <obj_property name="ObjectShortName">scn_end_clt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/clt_rdy_scn" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clt_rdy_scn</obj_property>
+      <obj_property name="ObjectShortName">clt_rdy_scn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/char_rdy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">char_rdy</obj_property>
+      <obj_property name="ObjectShortName">char_rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/char_vld" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">char_vld</obj_property>
+      <obj_property name="ObjectShortName">char_vld</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/char_end" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">char_end</obj_property>
+      <obj_property name="ObjectShortName">char_end</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/char" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">char[7:0]</obj_property>
+      <obj_property name="ObjectShortName">char[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/sid" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sid[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sid[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/offset" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">offset[31:0]</obj_property>
+      <obj_property name="ObjectShortName">offset[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/sid_vld" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sid_vld</obj_property>
+      <obj_property name="ObjectShortName">sid_vld</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/sid_end" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sid_end</obj_property>
+      <obj_property name="ObjectShortName">sid_end</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/virus_found" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">virus_found</obj_property>
+      <obj_property name="ObjectShortName">virus_found</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/scn_rdy_dpt" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">scn_rdy_dpt</obj_property>
+      <obj_property name="ObjectShortName">scn_rdy_dpt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/next_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">next_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/buf_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buf_data[255:0]</obj_property>
+      <obj_property name="ObjectShortName">buf_data[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/buf_id" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buf_id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">buf_id[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/buf_cmd" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buf_cmd[7:0]</obj_property>
+      <obj_property name="ObjectShortName">buf_cmd[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/buf_end" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">buf_end</obj_property>
+      <obj_property name="ObjectShortName">buf_end</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/buf_bvld" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buf_bvld[31:0]</obj_property>
+      <obj_property name="ObjectShortName">buf_bvld[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/load_data" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">load_data</obj_property>
+      <obj_property name="ObjectShortName">load_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/read_status" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">read_status[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_status[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/sid_rdy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sid_rdy</obj_property>
+      <obj_property name="ObjectShortName">sid_rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/sid_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sid_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">sid_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/sid_next_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sid_next_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">sid_next_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/result_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">result_reg[255:0]</obj_property>
+      <obj_property name="ObjectShortName">result_reg[255:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/sid_index" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sid_index[2:0]</obj_property>
+      <obj_property name="ObjectShortName">sid_index[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/result_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">result_ready</obj_property>
+      <obj_property name="ObjectShortName">result_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/S_WAIT" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">S_WAIT[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_WAIT[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/S_LOOP" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">S_LOOP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_LOOP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/SID_IDLE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SID_IDLE[1:0]</obj_property>
+      <obj_property name="ObjectShortName">SID_IDLE[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/SID_WAIT" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SID_WAIT[1:0]</obj_property>
+      <obj_property name="ObjectShortName">SID_WAIT[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/SID_HANLE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SID_HANLE[1:0]</obj_property>
+      <obj_property name="ObjectShortName">SID_HANLE[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/SID_0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SID_0[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SID_0[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/SID_1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SID_1[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SID_1[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hravframework/uut/awrapper/SID_2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SID_2[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SID_2[2:0]</obj_property>
+   </wvobject>
+</wave_config>

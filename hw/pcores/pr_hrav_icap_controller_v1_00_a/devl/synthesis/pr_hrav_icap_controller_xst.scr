@@ -1,0 +1,11 @@
+run
+-opt_level 2
+-opt_mode speed
+-ifmt mixed
+-ifn /media/dung/anhqvn/FPGA11/contrib-projects/hrav_framework_b_finall3/hw/pcores/pr_hrav_icap_controller_v1_00_a/devl/synthesis/pr_hrav_icap_controller_xst.prj
+-top pr_hrav_icap_controller
+-p virtex6
+-ofn /media/dung/anhqvn/FPGA11/contrib-projects/hrav_framework_b_finall3/hw/pcores/pr_hrav_icap_controller_v1_00_a/devl/synthesis/pr_hrav_icap_controller_xst.ngc
+-iobuf NO
+-rtlview YES
+-hierarchy_separator /

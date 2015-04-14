@@ -1,0 +1,28 @@
+Command line:
+   tb_hravframework_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  47946
+
+Wed Oct 29 12:28:03 2014
+
+
+ Elaboration Time: 0.09 sec
+
+ Current Memory Usage: 192.827 Meg
+
+ Total Signals          : 1230
+ Total Nets             : 9133
+ Total Signal Drivers   : 304
+ Total Blocks           : 25
+ Total Primitive Blocks : 9
+ Total Processes        : 419
+ Total Traceable Variables  : 1166
+ Total Scalar Nets and Variables : 94831
+
+ Total Simulation Time: 0.38 sec
+
+ Current Memory Usage: 268.333 Meg
+
+Wed Oct 29 12:56:44 2014
+

@@ -1,0 +1,10 @@
+project new /media/dung/anhqvn/FPGA11/contrib-projects/hrav_framework_b_finall3/hw/pcores/pr_hrav_icap_controller_v1_00_a/devl/projnav/pr_hrav_icap_controller.xise;
+project set family virtex5;
+project set device xc5vtx240t;
+project set package ff1759;
+project set speed -2;
+project set top_level_module_type HDL;
+project set synthesis_tool "XST (VHDL/Verilog)";
+lib_vhdl new pr_hrav_icap_controller_v1_00_a;
+xfile add /media/dung/anhqvn/FPGA11/contrib-projects/hrav_framework_b_finall3/hw//pcores/pr_hrav_icap_controller_v1_00_a/hdl/verilog/pr_hrav_icap_controller.v;
+project close;

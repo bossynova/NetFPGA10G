@@ -1,0 +1,11 @@
+##############################################################################
+## Filename:          /home/heckarim/works/netfpga10g/NetFPGA-10G-live-release_4.9.0/projects/reference_nic_1g/hw/pcores/dma_benchmark_v1_00_a/data/dma_benchmark_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Tue Jan 14 10:14:43 2014 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib dma_benchmark_v1_01_a dma_benchmark verilog
+lib dma_benchmark_v1_01_a dma_benchmark_controller.v verilog
+lib dma_benchmark_v1_01_a fallthrough_small_fifo_v2.v verilog
+lib dma_benchmark_v1_01_a small_fifo_v3.v verilog
+lib pr_hrav_icap_controller_v1_00_a two_dff_sync verilog

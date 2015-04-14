@@ -1,0 +1,786 @@
+Release 13.4 - xst O.87xd (lin64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: scanner_wrapper.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "scanner_wrapper.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "scanner_wrapper"
+Output Format                      : NGC
+Target Device                      : xc5vtx240t-2-ff1759
+
+---- Source Options
+Top Module Name                    : scanner_wrapper
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../simple_scanner.v" in library work
+Compiling verilog file "../scanner_wrapper.v" in library work
+Module <simple_scanner> compiled
+Module <scanner_wrapper> compiled
+No errors in compilation
+Analysis of file <"scanner_wrapper.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <scanner_wrapper> in library <work> with parameters.
+	SID_0 = "000"
+	SID_1 = "001"
+	SID_2 = "010"
+	SID_HANLE = "10"
+	SID_IDLE = "00"
+	SID_WAIT = "01"
+	S_LOOP = "01"
+	S_WAIT = "00"
+
+Analyzing hierarchy for module <simple_scanner> in library <work> with parameters.
+	PATTERN_0 = "00001010000010110000110000001101"
+	PATTERN_1 = "00011010000110110001110000011101"
+	PATTERN_2 = "00101010001010110010110000101101"
+	PATTERN_3 = "00111010001110110011110000111101"
+	PATTERN_4 = "01001010010010110100110001001101"
+	PATTERN_5 = "01011010010110110101110001011101"
+	PATTERN_6 = "01101010011010110110110001101101"
+	PATTERN_7 = "01111010011110110111110001111101"
+	STATE_IDLE = "000"
+	STATE_SEND_SID = "001"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <scanner_wrapper>.
+	SID_0 = 3'b000
+	SID_1 = 3'b001
+	SID_2 = 3'b010
+	SID_HANLE = 2'b10
+	SID_IDLE = 2'b00
+	SID_WAIT = 2'b01
+	S_LOOP = 2'b01
+	S_WAIT = 2'b00
+Module <scanner_wrapper> is correct for synthesis.
+ 
+Analyzing module <simple_scanner> in library <work>.
+	PATTERN_0 = 32'b00001010000010110000110000001101
+	PATTERN_1 = 32'b00011010000110110001110000011101
+	PATTERN_2 = 32'b00101010001010110010110000101101
+	PATTERN_3 = 32'b00111010001110110011110000111101
+	PATTERN_4 = 32'b01001010010010110100110001001101
+	PATTERN_5 = 32'b01011010010110110101110001011101
+	PATTERN_6 = 32'b01101010011010110110110001101101
+	PATTERN_7 = 32'b01111010011110110111110001111101
+	STATE_IDLE = 3'b000
+	STATE_SEND_SID = 3'b001
+Module <simple_scanner> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <result_reg<255>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<254>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<253>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<252>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<251>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<250>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<249>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<248>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<247>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<246>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<245>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<244>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<243>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<242>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<241>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<240>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<239>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<238>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<237>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<236>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<235>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<234>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<233>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<232>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<231>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<230>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<229>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<228>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<227>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<226>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<225>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<224>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<31>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<30>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<29>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<28>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<27>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<26>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<25>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<24>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<23>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<22>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<21>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<20>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<19>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<18>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<17>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<16>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<15>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<14>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<13>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<12>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<11>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<10>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<9>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<8>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<7>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<6>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<5>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<4>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <result_reg<3>> in unit <scanner_wrapper> has a constant value of 0 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <simple_scanner>.
+    Related source file is "../simple_scanner.v".
+WARNING:Xst:646 - Signal <found_sid> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 2                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 48-bit register for signal <buffer_matching_sids>.
+    Found 40-bit register for signal <data_buffer>.
+    Found 48-bit register for signal <matching_sids>.
+    Found 1-bit register for signal <reset_result_reg>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred 137 D-type flip-flop(s).
+Unit <simple_scanner> synthesized.
+
+
+Synthesizing Unit <scanner_wrapper>.
+    Related source file is "../scanner_wrapper.v".
+WARNING:Xst:647 - Input <dpt_poff_scn> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found finite state machine <FSM_1> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 2                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_2> for signal <sid_state>.
+    -----------------------------------------------------------------------
+    | States             | 2                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 1                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 32-bit register for signal <buf_bvld>.
+    Found 8-bit register for signal <buf_cmd>.
+    Found 256-bit register for signal <buf_data>.
+    Found 1-bit register for signal <buf_end>.
+    Found 32-bit register for signal <buf_id>.
+    Found 32-bit register for signal <read_status>.
+    Found 1-bit register for signal <result_ready>.
+    Found 192-bit register for signal <result_reg<223:32>>.
+    Found 3-bit register for signal <result_reg<2:0>>.
+    Found 3-bit adder for signal <result_reg_31_0$add0000> created at line 208.
+    Found 3-bit up counter for signal <sid_index>.
+INFO:Xst:738 - HDL ADVISOR - 256 flip-flops were inferred for signal <buf_data>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Summary:
+	inferred   2 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred 557 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <scanner_wrapper> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 3-bit adder                                           : 1
+# Counters                                             : 1
+ 3-bit up counter                                      : 1
+# Registers                                            : 206
+ 1-bit register                                        : 198
+ 256-bit register                                      : 1
+ 32-bit register                                       : 3
+ 40-bit register                                       : 1
+ 48-bit register                                       : 2
+ 8-bit register                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_2> for best encoding.
+Optimizing FSM <sid_state/FSM> on signal <sid_state[1:1]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 0
+ 01    | 1
+-------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <state/FSM> on signal <state[1:1]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 0
+ 01    | 1
+-------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <scanner0/state/FSM> on signal <state[1:1]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 0
+ 001   | 1
+-------------------
+WARNING:Xst:1710 - FF/Latch <result_reg_89> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_87> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_91> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_92> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_90> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_94> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_95> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_93> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_112> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_113> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_114> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_115> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_117> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_118> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_116> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_120> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_121> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_119> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_123> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_124> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_122> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_125> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_126> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_127> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_48> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_49> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_50> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_51> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_53> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_54> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_52> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_56> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_57> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_55> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_59> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_60> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_58> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_61> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_62> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_63> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_80> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_82> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_83> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_81> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_85> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_86> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_84> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_88> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_185> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_183> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_187> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_188> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_186> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_190> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_191> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_189> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_209> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_210> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_208> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_212> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_213> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_211> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_214> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_215> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_216> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_217> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_219> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_220> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_218> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_222> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_223> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_221> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_145> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_146> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_144> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_148> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_149> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_147> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_150> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_151> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_152> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_153> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_155> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_156> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_154> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_158> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_159> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_157> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_176> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_177> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_178> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_179> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_181> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_182> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_180> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_184> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 3
+# Adders/Subtractors                                   : 1
+ 3-bit adder                                           : 1
+# Counters                                             : 1
+ 3-bit up counter                                      : 1
+# Registers                                            : 694
+ Flip-Flops                                            : 694
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <scanner_wrapper> ...
+
+Optimizing unit <simple_scanner> ...
+WARNING:Xst:1710 - FF/Latch <result_reg_88> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_89> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_90> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_92> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_93> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_91> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_95> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_94> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_112> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_113> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_114> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_115> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_116> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_118> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_119> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_117> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_121> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_122> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_120> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_124> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_125> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_123> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_126> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_127> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_48> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_49> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_50> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_51> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_53> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_54> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_52> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_56> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_57> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_55> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_59> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_60> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_58> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_61> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_62> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_63> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_80> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_82> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_83> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_81> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_85> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_86> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_84> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_87> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_182> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_186> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_187> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_185> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_189> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_190> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_188> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_191> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_209> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_210> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_208> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_212> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_213> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_211> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_215> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_216> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_214> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_217> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_218> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_219> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_220> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_222> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_223> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_221> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_144> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_145> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_147> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_148> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_146> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_150> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_151> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_149> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_152> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_153> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_154> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_155> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_157> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_158> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_156> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_159> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_176> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_177> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_178> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_179> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_180> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_181> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_183> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <result_reg_184> (without init value) has a constant value of 0 in block <scanner_wrapper>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block scanner_wrapper, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 604
+ Flip-Flops                                            : 604
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : scanner_wrapper.ngr
+Top Level Output File Name         : scanner_wrapper
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 697
+
+Cell Usage :
+# BELS                             : 569
+#      GND                         : 1
+#      INV                         : 18
+#      LUT2                        : 6
+#      LUT3                        : 157
+#      LUT4                        : 298
+#      LUT5                        : 6
+#      LUT6                        : 50
+#      MUXF7                       : 32
+#      VCC                         : 1
+# FlipFlops/Latches                : 604
+#      FD                          : 1
+#      FDR                         : 140
+#      FDRE                        : 462
+#      FDSE                        : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 664
+#      IBUF                        : 333
+#      OBUF                        : 331
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vtx240tff1759-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             604  out of  149760     0%  
+ Number of Slice LUTs:                  535  out of  149760     0%  
+    Number used as Logic:               535  out of  149760     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    685
+   Number with an unused Flip Flop:      81  out of    685    11%  
+   Number with an unused LUT:           150  out of    685    21%  
+   Number of fully used LUT-FF pairs:   454  out of    685    66%  
+   Number of unique control sets:        10
+
+IO Utilization: 
+ Number of IOs:                         697
+ Number of bonded IOBs:                 665  out of    680    97%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 604   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 3.314ns (Maximum Frequency: 301.740MHz)
+   Minimum input arrival time before clock: 2.426ns
+   Maximum output required time after clock: 3.472ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.314ns (frequency: 301.740MHz)
+  Total number of paths / destination ports: 8540 / 1045
+-------------------------------------------------------------------------
+Delay:               3.314ns (Levels of Logic = 4)
+  Source:            buf_bvld_22 (FF)
+  Destination:       scanner0/data_buffer_39 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: buf_bvld_22 to scanner0/data_buffer_39
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             1   0.396   0.901  buf_bvld_22 (buf_bvld_22)
+     LUT6:I0->O            1   0.086   0.662  char_vld63 (char_vld63)
+     LUT4:I0->O            2   0.086   0.491  char_vld121 (char_vld121)
+     LUT6:I4->O           40   0.086   0.521  scanner0/data_buffer_and00001 (scanner0/data_buffer_and0000)
+     LUT3:I2->O            1   0.086   0.000  scanner0/data_buffer_39_rstpot (scanner0/data_buffer_39_rstpot)
+     FDR:D                    -0.022          scanner0/data_buffer_39
+    ----------------------------------------
+    Total                      3.314ns (0.740ns logic, 2.574ns route)
+                                       (22.3% logic, 77.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 1632 / 1328
+-------------------------------------------------------------------------
+Offset:              2.426ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       scanner0/matching_sids_47 (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to scanner0/matching_sids_47
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           555   0.694   0.782  reset_IBUF (reset_IBUF)
+     LUT3:I0->O           48   0.086   0.396  scanner0/matching_sids_or01281 (scanner0/matching_sids_or0128)
+     FDR:R                     0.468          scanner0/matching_sids_0
+    ----------------------------------------
+    Total                      2.426ns (1.248ns logic, 1.178ns route)
+                                       (51.4% logic, 48.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 142 / 142
+-------------------------------------------------------------------------
+Offset:              3.472ns (Levels of Logic = 2)
+  Source:            state_FSM_FFd1 (FF)
+  Destination:       scn_rdy_dpt (PAD)
+  Source Clock:      clk rising
+
+  Data Path: state_FSM_FFd1 to scn_rdy_dpt
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q            291   0.396   0.435  state_FSM_FFd1 (state_FSM_FFd1)
+     INV:I->O              1   0.212   0.286  state_FSM_Out01_INV_0 (scn_rdy_dpt_OBUF)
+     OBUF:I->O                 2.144          scn_rdy_dpt_OBUF (scn_rdy_dpt)
+    ----------------------------------------
+    Total                      3.472ns (2.752ns logic, 0.720ns route)
+                                       (79.3% logic, 20.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.54 secs
+ 
+--> 
+
+
+Total memory usage is 566008 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  194 (   0 filtered)
+Number of infos    :   62 (   0 filtered)
+

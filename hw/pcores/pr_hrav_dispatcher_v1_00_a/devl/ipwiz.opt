@@ -1,0 +1,11 @@
+-batch 
+-create pr_hrav_dispatcher 
+-ver 1.00.a 
+-dir /media/dung/anhqvn/FPGA11/contrib-projects/hrav_framework_b_finall3/hw/ 
+-lang verilog 
+-bus axi4stream ms 
+-xps 
+-ise 
+-totalin 256
+-totalout 256
+-driver 

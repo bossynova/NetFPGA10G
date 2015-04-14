@@ -1,0 +1,8 @@
+verilog work "../simple_scanner.v"
+verilog work "../fifo72x128.v"
+verilog work "../fifo288x128.v"
+verilog work "../scanner_wrapper.v"
+verilog work "../dispatcher.v"
+verilog work "../collector.v"
+verilog work "../hravframework.v"
+verilog work "../tb_hravframework.v"

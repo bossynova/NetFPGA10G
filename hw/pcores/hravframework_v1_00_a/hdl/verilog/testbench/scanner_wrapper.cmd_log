@@ -1,0 +1,12 @@
+xst -intstyle ise -ifn "/home/heckarim/work/netfpga10g/NetFPGA-10G-live-release_5.0.1/projects/hrav_framework/hw/pcores/hravframework_v1_00_a/hdl/verilog/testbench/scanner_wrapper.xst" -ofn "/home/heckarim/work/netfpga10g/NetFPGA-10G-live-release_5.0.1/projects/hrav_framework/hw/pcores/hravframework_v1_00_a/hdl/verilog/testbench/scanner_wrapper.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc5vtx240t-ff1759-2 scanner_wrapper.ngc scanner_wrapper.ngd  
+map -intstyle ise -p xc5vtx240t-ff1759-2 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o scanner_wrapper_map.ncd scanner_wrapper.ngd scanner_wrapper.pcf 
+par -w -intstyle ise -ol high -mt off scanner_wrapper_map.ncd scanner_wrapper.ncd scanner_wrapper.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml scanner_wrapper.twx scanner_wrapper.ncd -o scanner_wrapper.twr scanner_wrapper.pcf 
+par -w -intstyle ise -ol high -mt off scanner_wrapper_map.ncd scanner_wrapper.ncd scanner_wrapper.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml scanner_wrapper.twx scanner_wrapper.ncd -o scanner_wrapper.twr scanner_wrapper.pcf 
+xst -intstyle ise -ifn "/home/heckarim/work/netfpga10g/NetFPGA-10G-live-release_5.0.1/projects/hrav_framework/hw/pcores/hravframework_v1_00_a/hdl/verilog/testbench/scanner_wrapper.xst" -ofn "/home/heckarim/work/netfpga10g/NetFPGA-10G-live-release_5.0.1/projects/hrav_framework/hw/pcores/hravframework_v1_00_a/hdl/verilog/testbench/scanner_wrapper.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc scanner_wrapper.ucf -p xc5vtx240t-ff1759-2 scanner_wrapper.ngc scanner_wrapper.ngd  
+map -intstyle ise -p xc5vtx240t-ff1759-2 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o scanner_wrapper_map.ncd scanner_wrapper.ngd scanner_wrapper.pcf 
+par -w -intstyle ise -ol high -mt off scanner_wrapper_map.ncd scanner_wrapper.ncd scanner_wrapper.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml scanner_wrapper.twx scanner_wrapper.ncd -o scanner_wrapper.twr scanner_wrapper.pcf -ucf scanner_wrapper.ucf 

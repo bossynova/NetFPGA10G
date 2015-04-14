@@ -1,0 +1,10 @@
+project new /home/eagle/NetFPGA10/contrib-projects/hravcore/hw/pcores/hravframework_v1_00_a/devl/projnav/hravframework.xise;
+project set family virtex5;
+project set device xc5vtx240t;
+project set package ff1759;
+project set speed -2;
+project set top_level_module_type HDL;
+project set synthesis_tool "XST (VHDL/Verilog)";
+lib_vhdl new hravframework_v1_00_a;
+xfile add /home/eagle/NetFPGA10/contrib-projects/hravcore/hw//pcores/hravframework_v1_00_a/hdl/verilog/hravframework.v;
+project close;

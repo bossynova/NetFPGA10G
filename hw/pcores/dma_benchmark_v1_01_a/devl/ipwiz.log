@@ -1,0 +1,35 @@
+
+----------------------------------------------------------------------------
+--                            File Generation                             --
+----------------------------------------------------------------------------
+No ProjNavigator support files will be generated at this time ...
+No XST project files will be generated at this time ...
+Start Creating drver source 
+
+----------------------------------------------------------------------------
+--                              Final Report                              --
+----------------------------------------------------------------------------
+Thank you for using Create and Import Peripheral Wizard!
+
+Peripheral summary
+
+  top name       : dma_benchmark
+  version        : 1.00.a
+  type           : AXI4STREAM master slave
+  features       : 
+
+File Summary
+
+  - HDL source -
+/home/heckarim/works/netfpga10g/NetFPGA-10G-live-release_4.9.0/projects/referenc
+e_nic_1g/hw/pcores/dma_benchmark_v1_00_a/hdl/vhdl
+  top level      : dma_benchmark.vhd
+
+  - Misc file -
+/home/heckarim/works/netfpga10g/NetFPGA-10G-live-release_4.9.0/projects/referenc
+e_nic_1g/hw/pcores/dma_benchmark_v1_00_a/devl
+  help           : README.txt
+  option         : ipwiz.opt
+  log            : ipwiz.log
+
+

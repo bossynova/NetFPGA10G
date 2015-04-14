@@ -1,0 +1,11 @@
+-batch 
+-create hravframework 
+-ver 1.00.a 
+-dir /home/eagle/NetFPGA10/contrib-projects/hravcore/hw/ 
+-lang verilog 
+-bus axi4stream ms 
+-xps 
+-ise 
+-totalin 8
+-totalout 8
+-driver 

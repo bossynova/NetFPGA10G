@@ -1,0 +1,7 @@
+rm -f *.make
+rm -f system.mss
+rm -f data/system.ucf
+Done!
+Writing filter settings....
+WARNING:EDK:939 - Could not write filter settings in /media/dung/anhqvn/FPGA11/projects/pr_hrav_final/hw/etc/system.filters
+WARNING:EDK:940 - Could not write gui settings in /media/dung/anhqvn/FPGA11/projects/pr_hrav_final/hw/etc/system.gui

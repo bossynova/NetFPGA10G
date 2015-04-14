@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="/home/netfpga/hai/NetFPGA-10G-live-master/projects/dma/sw/embedded/SDK_Workspace/dma/system_bd.bmm" key="dma-bmmFile"/>
+	<item value="/home/netfpga/hai/NetFPGA-10G-live-master/projects/dma/sw/embedded/SDK_Workspace/dma_test/system_bd.bmm" key="dma_test-bmmFile"/>
+	<item value="/home/netfpga/hai/NetFPGA-10G-live-master/projects/dma/sw/embedded/SDK_Workspace/dma_test/system.bit" key="dma_test-bitFile"/>
+	<item value="bootloop" key="dma_test-microblaze_0-initElf"/>
+	<item value="/home/netfpga/hai/NetFPGA-10G-live-master/projects/reference_nic_1g/bitfiles/reference_nic_1g.bit" key="dma-bitFile"/>
+	<item value="bootloop" key="dma-microblaze_0-initElf"/>
+</section>

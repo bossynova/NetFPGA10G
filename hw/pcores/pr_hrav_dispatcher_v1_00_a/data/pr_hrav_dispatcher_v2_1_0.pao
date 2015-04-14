@@ -1,0 +1,8 @@
+##############################################################################
+## Filename:          /media/dung/anhqvn/FPGA11/contrib-projects/hrav_framework_b_finall3/hw/pcores/pr_hrav_dispatcher_v1_00_a/data/pr_hrav_dispatcher_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Sun Feb  8 11:16:08 2015 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib pr_hrav_dispatcher_v1_00_a pr_hrav_dispatcher verilog
+lib pr_hrav_dispatcher_v1_00_a pr_hrav_dbuf verilog
